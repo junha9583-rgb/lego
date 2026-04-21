@@ -23,7 +23,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     line-height: 1;
     font-size: 20px;
-    background: url(${process.env.PUBLIC_URL}/image/bg.png);
+    background: url(${process.env.PUBLIC_URL}/image/bg.webp);
     animation: ${spaceDrift} 10s linear infinite alternate;
   }
 
