@@ -16,6 +16,53 @@ const size = {
   tablet: '1024px',
 };
 
+const CustomBtn = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid #000;
+  box-shadow: 4px 4px 0px #000;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  i {
+    font-size: 24px;
+    color: #fff;
+    filter: drop-shadow(2px 2px 0px #000);
+  }
+
+  &:hover {
+    background: #E3000B;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 6px 6px 0px #000;
+    
+    i {
+      color: #fff;
+    }
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+    box-shadow: 2px 2px 0px #000;
+  }
+
+  &.custom-prev { left: 30px; }
+  &.custom-next { right: 30px; }
+
+  @media (max-width: ${size.mobile}) {
+    display: none;
+  }
+`;
+
 const neonFlicker = keyframes`
   0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
     text-shadow:
@@ -44,6 +91,7 @@ const SectionWrapper = styled.section`
     width: 100%;
     padding-bottom: 150px;
     text-align: center;
+    position: relative;
   }
 
   .cont-4-inner {
@@ -218,7 +266,10 @@ function ProductSection({ type, title }) {
             id={`${type}-list`}
             className="my-product-swiper"
             modules={[Navigation, Pagination]}
-            navigation
+            navigation={{
+              nextEl: '.custom-next',
+              prevEl: '.custom-prev',
+            }}
             pagination={{ el: `.${type}-pagination`, clickable: true }}
             slidesPerView={4}
             slidesPerGroup={2}
@@ -250,6 +301,12 @@ function ProductSection({ type, title }) {
               </SwiperSlide>
             ))}
           </Swiper>
+          <CustomBtn className="custom-prev">
+            <i className="fa-solid fa-chevron-left"></i>
+          </CustomBtn>
+          <CustomBtn className="custom-next">
+            <i className="fa-solid fa-chevron-right"></i>
+          </CustomBtn>
         </div>
         <div className={`${type}-pagination pagination-wrapper`}></div>
       </div>
