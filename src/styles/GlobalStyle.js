@@ -49,9 +49,9 @@ export const GlobalStyle = createGlobalStyle`
   [class$="inner"] {
     max-width: 1600px;
     margin: auto;
-    background: rgba(255, 255, 255, 0.3);
-    /* backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px); */
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 
     /* 태블릿 */
     @media (max-width: ${size.tablet}) {
