@@ -49,7 +49,7 @@ export const GlobalStyle = createGlobalStyle`
   [class$="inner"] {
     max-width: 1600px;
     margin: auto;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 
